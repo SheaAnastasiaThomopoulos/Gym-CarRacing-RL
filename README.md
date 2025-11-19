@@ -40,4 +40,40 @@ Gym-CarRacing-RL/
 │   └── videos_DQN/
 │
 └── README.md
+```
 
+# Training
+Training progression follows:
+```text
+0 → 100k steps  
+100k → 300k  
+300k → 600k  
+600k → 1M
+```
+
+Each stage:
+- Loads previous checkpoint
+- Trains additional timesteps
+- Updates live reward plot
+- Saves new checkpoint
+
+# Evalution
+To evaluate a checkpoint:
+```python
+evaluate_checkpoint(300000)
+```
+This will:
+- run 5 evaluation episodes
+- compute:
+  - mean reward
+  - variance
+  - best/worst episode
+- store logs in logs_SAC/
+
+# Demo
+Videos are saved in:
+```text
+videos_SAC/
+videos_PPO/
+videos_DQN/
+```
